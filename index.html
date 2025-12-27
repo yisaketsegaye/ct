@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+  <title>ClockIt – Coming Soon</title>
+
+  <style>
+    :root {
+      --clockit-gold: #f5d28a;
+      --clockit-bg: #0b1a2e;
+      --clockit-text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    }
+
+    body {
+      background: var(--clockit-bg);
+      height: 100vh;
+      overflow: hidden;
+      color: var(--clockit-text);
+    }
+
+    /* -----------------------------
+       FULLSCREEN VIDEO BACKGROUND
+       ----------------------------- */
+    .video-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      overflow: hidden;
+      background: var(--clockit-bg);
+    }
+
+    .video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* -----------------------------
+       GLOBAL FULLSCREEN SCRIM
+       ----------------------------- */
+    .global-scrim {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(
+          65% 60% at 50% 40%,
+          rgba(11, 26, 46, 0.25),
+          rgba(11, 26, 46, 0.75)
+        );
+    }
+
+    /* -----------------------------
+       CENTER CONTENT
+       ----------------------------- */
+    .center-content {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      padding: 32px 36px;
+      border-radius: 24px;
+
+      /* Local micro-scrim */
+      background: radial-gradient(
+        70% 70% at 50% 50%,
+        rgba(11, 26, 46, 0.55),
+        rgba(11, 26, 46, 0.25)
+      );
+
+      backdrop-filter: blur(2px);
+    }
+
+    .title {
+      font-size: clamp(44px, 7vw, 72px);
+      letter-spacing: 0.2em;
+      font-weight: 900;
+      color: var(--clockit-gold);
+      margin-bottom: 12px;
+      text-shadow:
+        0 2px 6px rgba(0,0,0,0.55),
+        0 8px 28px rgba(0,0,0,0.45);
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      line-height: 1.6;
+      text-shadow:
+        0 2px 8px rgba(0,0,0,0.55),
+        0 6px 22px rgba(0,0,0,0.45);
+    }
+
+    /* -----------------------------
+       BOTTOM SECTION
+       ----------------------------- */
+    .bottom {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .coming-soon {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clockit-gold);
+      text-shadow: 0 3px 12px rgba(0,0,0,0.4);
+      margin-bottom: 16px;
+    }
+
+    /* -----------------------------
+       STORE BUTTONS (WAGON STYLE)
+       ----------------------------- */
+    .store-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .store-btn {
+      border-radius: 999px;
+      padding: 10px 20px;
+      border: 2px solid var(--clockit-gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--clockit-gold);
+      background: rgba(245, 210, 138, 0.15);
+      backdrop-filter: blur(6px);
+      transition: 0.2s ease;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .store-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(245, 210, 138, 0.25);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    .store-btn span {
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    .store-btn small {
+      display: block;
+      font-size: 0.7rem;
+      opacity: 0.85;
+    }
+
+    .store-btn strong {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 600px) {
+      .coming-soon {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Video -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Global Scrim -->
+  <div class="global-scrim"></div>
+
+  <!-- Center Content -->
+  <div class="center-content">
+    <div class="title">CLOCK IT</div>
+    <div class="subtitle">
+      Clock the word.<br />
+      Outplay the room.
+    </div>
+  </div>
+
+  <!-- Bottom Section -->
+  <div class="bottom">
+    <div class="coming-soon">Coming Soon</div>
+
+    <div class="store-buttons">
+      <a class="store-btn" href="#">
+        <span></span>
+        <div>
+          <small>Download on the</small>
+          <strong>App Store</strong>
+        </div>
+      </a>
+
+      <a class="store-btn" href="#">
+        <span>▶</span>
+        <div>
+          <small>Get it on</small>
+          <strong>Google Play</strong>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <footer>© ClockIt</footer>
+
+</body>
+</html>
